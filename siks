@@ -1,0 +1,218 @@
+"""Por funciones resolver ecuaciones de segundo grado (ax^2 +bx+c)
+SYNTAXIS:
+    def nombre_de_la_funcion(lista de parámetros):
+        bloque de instrucciones que hace la función
+        return """
+# Por funciones resolver ecuaciones de segundo grado (ax^2 +bx+c)
+from math import sqrt
+import math
+def entradas():
+    a = int(input("A: "))
+    b = int(input("B: "))
+    c = int(input("C: "))
+    return a, b, c  # se guardan en variables
+a, b, c = entradas()  # Se le asignan variables globales a los datos que se dan en la funcion
+def comprobacion():  # Pasar datos de una funcion
+    argu = (b ** 2) - (4 * a * c)
+    if (argu) >= 0:
+        print("si")
+        return True, argu
+    else:
+        print("no")
+        return False, abs(argu)
+Siescomplejo, arguGlo = comprobacion()
+def solEc2(a, b, arguGlo, Siescomplejo):
+    if (Siescomplejo == True):
+        print("La solucion no es compleja")
+        x1=(-b+sqrt(arguGlo))/(2*a)
+        x2=(-b-sqrt(arguGlo))/(2*a)
+        print("x1: ", x1)
+        print("x2: ", x2)
+        return x1,x2
+    else:
+        print("Es solucion compleja...")
+        real = -b/(2 * a)
+        imaginaria = sqrt(arguGlo) / (2 * a)
+        print(f"X1: {real} + {imaginaria}i")
+        print(f"X2: {real} - {imaginaria}i")
+        return real, imaginaria
+x1,x2=solEc2(a, b, arguGlo, Siescomplejo)
+def banner_calcu():
+    print("///Ahora usaras la calculadora, podras operar tanto numeros complejos como numeros enteros")
+    operacion = input("Estas son las funciones de la calculadora:\n(+)Suma   (-)Resta\n(x)Multiplicacion (/)Division\n Escoge la operacion a realizar: ")
+    if(operacion=="+" or operacion=="suma"):
+        print("suma")
+    elif(operacion=="-" or operacion=="resta"):
+        print("resta")
+    elif (operacion == "x" or operacion == "multiplicacion"):
+        print("multiplicacion")
+    elif (operacion == "/" or operacion == "division"):
+        print("division")
+
+    return operacion
+operacion_cal=banner_calcu()
+#banner_calcu()
+def calculo(operacion_cal,x1,x2):
+    if(Siescomplejo==True):
+        val_x1=input("¿Cuál valor desea usar para la operacion, ¿x1, x2 u otros?: ")
+        if(val_x1=="x1" and (operacion_cal=="suma" or operacion_cal=="+")):
+            otro_numero= int(input("Digite el otro numero a sumar: "))
+            print(f"{x1} + {otro_numero}")
+            suma1 = x1+otro_numero
+            return suma1,0
+        elif (val_x1 == "x1" and (operacion_cal == "resta" or operacion_cal=="-")):
+            otro_numero = int(input("Digite el otro numero a restar: "))
+            print(f"{x1} - {otro_numero}")
+            resta1 = x1 - otro_numero
+            return resta1,0
+        elif (val_x1 == "x1" and (operacion_cal == "multiplicaion" or operacion_cal=="x")):
+            otro_numero = int(input("Digite el otro numero a multiplicar: "))
+            print(f"{x1} x {otro_numero}")
+            multi1 = x1 * otro_numero
+            return multi1,0
+        elif (val_x1=="x1" and (operacion_cal =="division" or operacion_cal=="/")):
+            otro_numero = int(input("Digite el otro numero a division: "))
+            print(f"{x1} / {otro_numero}")
+            divis1 = x1 / otro_numero
+            return divis1,0
+        elif (val_x1 == "x2" and (operacion_cal == "suma" or operacion_cal == "+")):
+            otro_numero = int(input("Digite el otro numero a sumar: "))
+            print(f"{x2} + {otro_numero}")
+            suma2 = x2 + otro_numero
+            return suma2,0
+        elif (val_x1 == "x2" and (operacion_cal == "resta" or operacion_cal == "-")):
+            otro_numero = int(input("Digite el otro numero a restar: "))
+            print(f"{x2} - {otro_numero}")
+            resta2 = x2 - otro_numero
+            return resta2,0
+        elif (val_x1 == "x2" and (operacion_cal == "multiplicaion" or operacion_cal == "x")):
+            otro_numero = int(input("Digite el otro numero a multiplicar: "))
+            print(f"{x2} x {otro_numero}")
+            multi2 = x2 * otro_numero
+            return multi2,0
+        elif (val_x1 == "x2" and (operacion_cal == "division" or operacion_cal == "/")):
+            otro_numero = int(input("Digite el otro numero a division: "))
+            print(f"{x2} / {otro_numero}")
+            divis2 = x2 / otro_numero
+            return divis2,0
+        elif (val_x1 == "otros" and (operacion_cal == "suma" or operacion_cal == "+")):
+            pri_numero= int(input("Digite el primer numero a sumar: "))
+            seg_numero=int(input("Digite el segundo numero a sumar: "))
+            print(f"{pri_numero} + {seg_numero}")
+            suma2 = pri_numero + seg_numero
+            return suma2,0
+        elif (val_x1 == "otros" and (operacion_cal == "resta" or operacion_cal == "-")):
+            pri_numero= int(input("Digite el primer numero a sumar: "))
+            seg_numero=int(input("Digite el segundo numero a sumar: "))
+            print(f"{pri_numero} - {seg_numero}")
+            resta2 = pri_numero - seg_numero
+            return resta2,0
+        elif (val_x1 == "otros" and (operacion_cal == "multiplicaion" or operacion_cal == "x")):
+            pri_numero= int(input("Digite el primer numero a sumar: "))
+            seg_numero=int(input("Digite el segundo numero a sumar: "))
+            print(f"{pri_numero} * {seg_numero}")
+            multi2 = pri_numero * seg_numero
+            return multi2,0
+        elif (val_x1 == "otros" and (operacion_cal == "division" or operacion_cal == "/")):
+            pri_numero= int(input("Digite el primer numero a sumar: "))
+            seg_numero=int(input("Digite el segundo numero a sumar: "))
+            print(f"{pri_numero} / {seg_numero}")
+            divis2 = pri_numero / seg_numero
+            return divis2,0
+    else:
+        val_x1 = input("¿Cuál valor desea usar para la operacion, ¿x1 o x2?: ")
+        if (val_x1 == "x1" and (operacion_cal == "suma" or operacion_cal == "+")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a sumar: "))
+            otro_numero_imag=int(input("Digite la parte imaginaria:"))
+            print(f"({x1} + {x2}i)+ ({otro_numero_real} + {otro_numero_imag}i)")
+            suma1 = x1 + otro_numero_real
+            suma2 = x2 + otro_numero_imag
+            return suma1,suma2
+        elif (val_x1 == "x1" and (operacion_cal == "resta" or operacion_cal == "-")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a restar: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} + {x2}i) - ({otro_numero_real} + {otro_numero_imag}i)")
+            resta1=x1 - otro_numero_real
+            resta2=x2-otro_numero_imag
+            return resta1,resta2
+        elif (val_x1 == "x1" and (operacion_cal == "multiplicaion" or operacion_cal == "x")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a multiplicar: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} + {x2}i) x ({otro_numero_real} + {otro_numero_imag}i)")
+            multi1=x1 * otro_numero_real
+            multi2=x2*otro_numero_imag
+            return multi1,multi2
+        elif (val_x1 == "x1" and (operacion_cal == "division" or operacion_cal == "/")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a dividir: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} + {x2}i) / ({otro_numero_real} + {otro_numero_imag}i)")
+            div1 = x1 / otro_numero_real
+            div2 = x2 / otro_numero_imag
+            return div1, div2
+        elif (val_x1 == "x2" and (operacion_cal == "suma" or operacion_cal == "+")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a sumar: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} - {x2}i) + ({otro_numero_real} + {otro_numero_imag}i)")
+            suma1 = x1 + otro_numero_real
+            suma2 = x2 + otro_numero_imag
+            return suma1,suma2
+        elif (val_x1 == "x2" and (operacion_cal == "resta" or operacion_cal == "-")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a resta: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} - {x2}i) - ({otro_numero_real} + {otro_numero_imag}i)")
+            resta1 = x1 - otro_numero_real
+            resta2 = x2 - otro_numero_imag
+            return resta1, resta2
+        elif (val_x1 == "x2" and (operacion_cal == "multiplicaion" or operacion_cal == "x")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a multiplicacion: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} - {x2}i) x ({otro_numero_real} + {otro_numero_imag}i)")
+            multi1 = x1 * otro_numero_real
+            multi2 = x2 * otro_numero_imag
+            return multi1, multi2
+        elif (val_x1 == "x2" and (operacion_cal == "division" or operacion_cal == "/")):
+            otro_numero_real = int(input("Digite la parte real del otro numero a dividir: "))
+            otro_numero_imag = int(input("Digite la parte imaginaria:"))
+            print(f"({x1} - {x2}i) / ({otro_numero_real} + {otro_numero_imag}i)")
+            div1 = x1 / otro_numero_real
+            div2 = x2 / otro_numero_imag
+            return div1, div2
+        elif (val_x1 == "otros" and (operacion_cal == "suma" or operacion_cal == "+")):
+            pri_numero= int(input("Digite la parte real del primer numero a sumar: "))
+            pri_numeroi=int(input("Digite la parte imaginaria: "))
+            seg_numero=int(input("Digite la parte real del segundo numero a sumar: "))
+            seg_numeroi = int(input("Digite la parte imaginaria: "))
+            print(f"({pri_numero} + {pri_numeroi}i) + ({seg_numero} + {seg_numeroi}i")
+            suma1 = pri_numero + seg_numero
+            suma2=pri_numeroi + seg_numeroi
+            return suma1,suma2
+        elif (val_x1 == "otros" and (operacion_cal == "resta" or operacion_cal == "-")):
+            pri_numero = int(input("Digite la parte real del primer numero a resta: "))
+            pri_numeroi = int(input("Digite la parte imaginaria: "))
+            seg_numero = int(input("Digite la parte real del segundo numero a resta: "))
+            seg_numeroi = int(input("Digite la parte imaginaria: "))
+            print(f"({pri_numero} + {pri_numeroi}i) - ({seg_numero} + {seg_numeroi}i")
+            resta1 = pri_numero - seg_numero
+            resta2 = pri_numeroi - seg_numeroi
+            return resta1, resta2
+        elif (val_x1 == "otros" and (operacion_cal == "multiplicaion" or operacion_cal == "x")):
+            pri_numero = int(input("Digite la parte real del primer numero a multiplicar: "))
+            pri_numeroi = int(input("Digite la parte imaginaria: "))
+            seg_numero = int(input("Digite la parte real del segundo numero a multiplicar: "))
+            seg_numeroi = int(input("Digite la parte imaginaria: "))
+            print(f"({pri_numero} + {pri_numeroi}i) x ({seg_numero} + {seg_numeroi}i")
+            multi1 = pri_numero * seg_numero
+            multi2 = pri_numeroi * seg_numeroi
+            return multi1, multi2
+        elif (val_x1 == "otros" and (operacion_cal == "division" or operacion_cal == "/")):
+            pri_numero = int(input("Digite la parte real del primer numero a division: "))
+            pri_numeroi = int(input("Digite la parte imaginaria: "))
+            seg_numero = int(input("Digite la parte real del segundo numero a division: "))
+            seg_numeroi = int(input("Digite la parte imaginaria: "))
+            print(f"({pri_numero} + {pri_numeroi}i) / ({seg_numero} + {seg_numeroi}i")
+            div1 = pri_numero / seg_numero
+            div2 = pri_numeroi / seg_numeroi
+            return div1, div2
+
+rtaR,rtaI=calculo(operacion_cal,x1,x2)
+print(f"La solucion es: {rtaR} + {rtaI}i")
