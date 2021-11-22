@@ -216,3 +216,7 @@ def calculo(operacion_cal,x1,x2):
 
 rtaR,rtaI=calculo(operacion_cal,x1,x2)
 print(f"La solucion es: {rtaR} + {rtaI}i")
+
+"""magnitud=math.sqrt((g**2)+(l**2))
+    fase= ((math.atan(l/g))*180)/math.pi
+    calculo de magnitudes"""
