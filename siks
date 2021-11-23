@@ -39,16 +39,13 @@ def solEc2(a, b, arguGlo, Siescomplejo):
 x1,x2=solEc2(a, b, arguGlo, Siescomplejo)
 def banner_calcu():
     print("///Ahora usaras la calculadora, podras operar tanto numeros complejos como numeros enteros")
-    operacion = input("Estas son las funciones de la calculadora:\n(+)Suma   (-)Resta\n(x)Multiplicacion (/)Division\n Escoge la operacion a realizar: ")
-    if(operacion=="+" or operacion=="suma"):
-        print("suma")
-    elif(operacion=="-" or operacion=="resta"):
-        print("resta")
-    elif (operacion == "x" or operacion == "multiplicacion"):
-        print("multiplicacion")
-    elif (operacion == "/" or operacion == "division"):
-        print("division")
-
+    operacion = input("Estas son las funciones de la calculadora:\n(+)Suma   (-)Resta\n(x)Multiplicacion (/)Division\n (||)Magnitud (<)Fase Escoge la operacion a realizar: ")
+    if(operacion=="+" or operacion=="suma"):pass
+    elif(operacion=="-" or operacion=="resta"):pass
+    elif (operacion == "x" or operacion == "multiplicacion"):pass
+    elif (operacion == "/" or operacion == "division"):pass
+    elif (operacion == "||" or operacion == "magnitud"):pass
+    elif (operacion == "<" or operacion == "Fase"):pass
     return operacion
 operacion_cal=banner_calcu()
 #banner_calcu()
@@ -119,6 +116,20 @@ def calculo(operacion_cal,x1,x2):
             print(f"{pri_numero} / {seg_numero}")
             divis2 = pri_numero / seg_numero
             return divis2,0
+        elif (val_x1=="otros" and (operacion_cal=="||" or operacion_cal=="magnitud")):
+            termino1=float(input("Digite el primer termino: "))
+            termino2 = float(input("Digite el segundo termino: "))
+            mag = sqrt((termino1**2)+(termino2**2))
+            print(f"La magnitud es {mag}")
+            con_fase=input("¿quiere conocer la fase pt(primer término),st(segundo término) n (ninguno)")
+            if(con_fase=="pt" or con_fase=="PT"):
+                fase=(math.atan(1/termino1))*180/math.pi
+                print(f"La fase para {termino1} es: {fase}")
+            elif(con_fase=="st" or con_fase=="ST"):
+                fase = (math.atan(1/termino2)) * 180 / math.pi
+                print(f"La fase para {termino1} es: {fase}")
+            elif(con_fase=="n" or con_fase=="N"):pass    
+
     else:
         val_x1 = input("¿Cuál valor desea usar para la operacion, ¿x1 o x2?: ")
         if (val_x1 == "x1" and (operacion_cal == "suma" or operacion_cal == "+")):
@@ -213,10 +224,14 @@ def calculo(operacion_cal,x1,x2):
             div1 = pri_numero / seg_numero
             div2 = pri_numeroi / seg_numeroi
             return div1, div2
+        elif (val_x1=="otros" and (operacion_cal=="||" or operacion_cal=="magnitud")):
+            termino1=float(input("Digite el primer termino real: "))
+            termino1i = float(input("Digite el primer termino imaginario: "))
+            termino2 = float(input("Digite el segundo termino real: "))
+            termino2i= float(input("Digite el segundo termino imaginario: "))
+            mag = sqrt((termino1**2)+(termino2**2))
+            magi=sqrt((termino1i**2)+(termino2i**2))
+            print(f"La magnitud es {mag} + {magi}i")
 
 rtaR,rtaI=calculo(operacion_cal,x1,x2)
 print(f"La solucion es: {rtaR} + {rtaI}i")
-
-"""magnitud=math.sqrt((g**2)+(l**2))
-    fase= ((math.atan(l/g))*180)/math.pi
-    calculo de magnitudes"""
