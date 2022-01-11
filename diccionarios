@@ -1,0 +1,9 @@
+#Diccionarios
+
+#Contactos={"Essy":317292934, "Jorge": }
+di4=dict(arroba=1,dos=2)
+print(di4)
+dicci={2201832:{"Joseph":[1,2,3,4,5]}}
+
+print(dicci[2201832]["Joseph"]) #Diccionario dentro de otro diccionario
+#Mirar los métodos de los diccionarios en las diapositivas.
