@@ -1,0 +1,50 @@
+"""class Persona:
+    def __init__(ombe,apellido,nombre,edad):
+        ombe.nombre=nombre
+        ombe.apellidos=apellido
+        ombe.edad=edad
+    def mayorEdad(self): #Método de la clase
+        if self.edad>18:
+            return f"{self.nombre} Mayor de edad"
+        else:
+            return "Menor de edad"
+
+persona1=Persona("James","Pablo",20)
+persona2=Persona("Salcedo", "Juan",12)
+print(persona1.nombre , persona1.apellidos)#Crear un objeto de la clase persona
+print(persona1.mayorEdad())
+print(persona2.nombre , persona2.apellidos)
+print(persona2.mayorEdad())
+persona1.nombre="Joseph"
+print(persona1.nombre)"""
+class Reloj:
+    def __init__(self,radio,color,hora,minutos,seg,botton):
+        self.marca="Rolex"
+        self.tamaño= radio
+        self.color= color
+        self.hora=hora
+        self.min=minutos
+        self.seg=seg
+        self.botton=botton
+    def hora(self):
+        return (f"{self.hora}:{self.minutos}:{self.seg}")
+    def sonido(self):
+        if self.hora % 2 ==0:
+            return ("Emitir sonido")
+    def accionBoton(self):
+        if self.botton==True:
+            return "Oprimio boton"
+        else:
+            return "No se oprimio"
+radio=eval(input("Que radio tendra su reloj: "))
+color=input("Color de su reloj: ")
+hora=eval(input("Hora actual: "))
+minutos=eval(input("Minutos actuales: "))
+seg=eval(input("Segundos actuales: "))
+oprimir=input("Quiere oprimir boton:")
+if oprimir=="Si" or oprimir=="si":
+    botton=True
+elif oprimir=="No" or oprimir=="no":
+    botton=False
+reloj1=Reloj(radio,color,hora,minutos,seg,botton)
+print(f"Su reloj tendra:\n{reloj1.marca}\n{reloj1.tamaño}\n{reloj1.color}\n{reloj1.hora}\n{reloj1.min}\n{reloj1.seg}")
