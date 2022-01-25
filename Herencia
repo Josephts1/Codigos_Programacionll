@@ -1,0 +1,24 @@
+class Figura2D:
+    def __init__(self,ancho,alto):
+        self.ancho=ancho
+        self.alto=alto
+    def dimensionesFigura2D(self):
+        return f"Las dimensiones de la figura son: ancho:{self.ancho} y alto:{self.alto}"
+    def getAncho(self):
+        return self.ancho
+    def getAlto(self):
+        return self.alto
+    def setAncho(self,ancho):
+        self.ancho=ancho
+    def setAlto(self, alto):
+        self.alto=alto
+
+
+class Triangulo(Figura2D): #Hereda los méodos de la clase padre
+    def __init__(self,ancho2,alto2):
+        super().__init__(ancho2,alto2)
+    def area(self):
+        return f"El area del triangulo con sus dimensiones (ancho={self.ancho} y alto={self.alto})  es: {(self.ancho * self.alto)/2}"
+
+figura1=Figura2D(32,4)
+triangulo1=Triangulo(22,9)
