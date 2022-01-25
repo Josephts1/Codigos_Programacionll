@@ -1,0 +1,5 @@
+from nuevoarchivo import Persona
+
+print(__name__)#Este __name__ toma el valor de __main__ y cómo hay otro print(__name__) en el código de la librería, imprimirá acá el nombre del archivo que tiene la librería.
+p1=Persona("Juancho","Pesido",40)#
+print(p1.nombre)
