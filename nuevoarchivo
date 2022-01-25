@@ -1,0 +1,26 @@
+class Persona:
+    def __init__(ombe,apellido,nombre,edad):
+        ombe.nombre=nombre
+        ombe.apellidos=apellido
+        ombe.edad=edad
+    def mayorEdad(self): #Método de la clase
+        if self.edad>18:
+            return f"{self.nombre} Mayor de edad"
+        else:
+            return "Menor de edad"
+        print("ombe")
+    def info(self):
+        if __name__ == "__main__":
+            print(persona1.nombre , persona1.apellidos)#Crear un objeto de la clase persona
+            print(persona1.mayorEdad())
+
+
+persona1 = Persona("James", "Pablo", 20)
+persona2=Persona("Salcedo", "Juan",12)
+print(__name__)
+print(persona1.info())
+print(persona1.nombre)
+
+#______________ELIMINAR OBJETOS INSTANCIADOS_____________#
+
+del persona1
