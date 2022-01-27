@@ -1,0 +1,47 @@
+class DispositivosEntrada:
+    def __init__(self,tipoEntrada,marca,rgb):
+        self._tipoEntrada=tipoEntrada
+        self._marca=marca
+        self._rgb=rgb
+    def rgb(self):
+        if self._rgb=="si" or self._rgb=="Si":
+             rgb=True
+             return rgb
+        else:
+            rgb=False
+            return rgb
+    def __str__(self):
+        return f"Tipo de entra: {self._tipoEntrada}, Marca: {self._marca} y rgb: {DispositivosEntrada.rgb()} "
+
+
+class Teclado(DispositivosEntrada):
+    contTeclados=0
+    def __init__(self,tipoEntrada,marca,rgb,idTeclado):
+        super().__init__(tipoEntrada,marca,rgb)
+        self.__idTeclado=idTeclado
+        Teclado.contTeclados+=1
+
+    def get_idTeclado(self):
+        return self.__idTeclado
+    def set_idTeclado(self,idTeclado):
+        self.__idTeclado=idTeclado
+
+    def __str__(self):
+        return f"id del Teclado: {self.__idTeclado} y numero de Teclados vendidos: {Teclado.contTeclados}, tipo de entrada: {self._tipoEntrada}"
+
+class Raton(DispositivosEntrada):
+    conRatones=0
+    def __init__(self,tipoEntrada,marca,rgb,contRaton,idRaton):
+        super().__init__(tipoEntrada,marca,rgb)
+        self.contRaton=contRaton
+        self.__idRaton=idRaton
+        Raton.conRatones+= 1
+    def get_idRaton(self):
+        return self.__idRaton
+    def set_idRaton(self,idRaton):
+        self.__idRaton=idRaton
+    def __str__(self):
+        return f"id del Teclado: {self.__idRaton} y numero de Teclados hechos: {Raton.conRatones}"
+Teclado1=Teclado(1,"Hp","Si",45)
+raton1=Raton(2,"Hp","Si",10,21)
+print(Teclado1)
