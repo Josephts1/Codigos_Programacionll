@@ -1,0 +1,31 @@
+class Orden:
+contadorOrden = 0
+def __init__(self, listaProductos):
+Orden.contadorOrden += 1
+self.__idOrden = Orden.contadorOrden
+self.__productos = list(listaProductos)
+def agregarProducto(self, producto):
+self.__productos.append(producto)
+def totalPrecio(self):
+total = 0
+for producto in self.__productos:
+total += producto.getPrecio()
+return total
+def __str__(self):
+strTemp = ''
+for producto in self.__productos:
+strTemp += producto.__str__()+'\n'
+return f'idOrden: {self.__idOrden} \nProductos:\n{strTemp}Total:{self.totalPrecio()}\n'
+from claseOrden import Orden
+from claseProducto import Producto
+from claseOrden import Orden
+# Creamos una lista de productos
+listProductos = []
+listProductos.append(Producto('jabon', 2500))
+listProductos.append(Producto('cereal', 10500))
+orden1 = Orden(listProductos)
+listProductos.append(Producto('papel', 12750))
+orden2 = Orden(listProductos)
+print(orden1)
+print(orden2)
+Sobrecarga de op
