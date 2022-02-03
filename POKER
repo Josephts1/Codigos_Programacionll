@@ -1,0 +1,34 @@
+class Poker:
+    def __init__(self,tipo,numero):
+        self.tipo=tipo
+        self.num=numero
+
+    def __str__(self):
+        return f"Tipo:{self.tipo} y Numero:{self.num}"
+
+class Baraja:
+    def __init__(self):
+        self.tipo=["C", "T", "P", "D"]
+        self.num=[x for x in range(1, 14)]
+    def crearBaraja(self):
+        baraja=[]
+        baraja2=[]
+        for palo in self.tipo:
+            for num in self.num:
+                baraja2.append(palo)
+                baraja2.append(num)
+                baraja.append(baraja2)
+                baraja2=[]
+        return baraja
+baraja=Baraja()
+print(baraja.crearBaraja())
+
+class Maso(Baraja):
+    def __init__(self,tipo,numero):
+        Baraja().__init__(tipo,numero)
+        self.tipo=tipo
+        self.num=numero
+        
+    def Maso(self):
+        maso1=[]
+        for i in baraja:
