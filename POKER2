@@ -20,3 +20,79 @@ class Baraja:
     listPal=["C","T","P","D"]
     def __init__(self,baraja):
         self.lista=baraja
+        
+        
+_____________________________Codigo 2_______________________________
+import random
+class Poker:
+    def __init__(self, tipo, numero):
+        self.tipo = tipo
+        self.num = numero
+
+    def __str__(self):
+        return f"Tipo:{self.tipo} y Numero:{self.num}"
+
+
+class Baraja:
+    def __init__(self):
+        self.tipo = ["C", "T", "P", "D"]
+        self.num = [x for x in range(1, 14)]
+
+    def crearBaraja(self):
+        baraja = []
+        baraja2 = []
+        for palo in self.tipo:
+            for num in self.num:
+                baraja2.append(palo)
+                baraja2.append(num)
+                baraja.append(baraja2)
+                baraja2 = []
+        return baraja
+    def repartirmano(self):
+        mano1=[]
+        for i in range(5):
+            car_rand=random.choice(baraja.crearBaraja())
+            mano1.append(car_rand)
+        #print(baraja.crearBaraja())
+        print(mano1)
+        return mano1
+    def escalera(self):
+        manonum = [4,5,6,9,8]
+        """for i in baraja.repartirmano():
+            manonum.append(i[1])
+        manonum.sort()"""
+        m = 40000
+        confirmar = False
+        for i in manonum:
+            if m==40000:
+                pass
+            else:     
+                if i==m+1:
+                    esca+=1
+            m=i
+            if esca >=5
+                confirmar= True
+
+        return manonum, confirmar
+
+
+if __name__=="__main__":
+    baraja = Baraja()
+    #print(baraja.crearBaraja())
+    mano1= baraja.repartirmano()
+    escalera,confirmar=baraja.escalera()
+    #print(mano1)
+    print(escalera)
+    print(confirmar)
+
+
+
+"""class Maso(baraja):
+    def __init__(self, tipo, numero):
+        Baraja().__init__(tipo, numero)
+        self.tipo = tipo
+        self.num = numero
+
+    def Maso(self):
+        maso1 = []
+        for i in baraja:"""
