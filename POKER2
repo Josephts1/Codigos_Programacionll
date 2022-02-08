@@ -1,0 +1,22 @@
+class Carta():
+    def __init__(self,palo,valor):
+        #self.__color=color
+        self.__palo = palo
+        self.__valor=valor
+    def get_Carta(self):
+        return self.__valor
+    def get_Palo(self):
+        return self.__palo
+    def __str__(self):
+        return f"Valor:{self.__valor} and Palo:{self.__palo}"
+
+if __name__=="__main__":
+    carta1=Carta("T",4)
+    print(carta1)
+    __________________________Ventana2_____________________________
+    from POKER2 import Carta
+class Baraja:
+    listnum=[x for x in range(1,14)]
+    listPal=["C","T","P","D"]
+    def __init__(self,baraja):
+        self.lista=baraja
