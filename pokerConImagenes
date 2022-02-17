@@ -1,15 +1,20 @@
+import tkinter
 from tkinter import *
 import random
 def voltearCarta1():
     global contgen
     if contgen[0] % 2 != 0:
         boton1.configure(image=dicii[listakeys[0]])
+        si=5
     else:
         boton1.configure(image=cartaR)
     contgen[0] += 1
     print("Cont1: ", contgen)
-
+    if si==5 and listakeys[0]==listakeys[3]:
+        boton1["state"]=tkinter.DISABLED
+        boton4["state"]=tkinter.DISABLED
     verificar()
+    #verificarpares()
 def voltearCarta2():
     global contgen
     if contgen[1] %2 !=0:
@@ -19,6 +24,7 @@ def voltearCarta2():
     contgen[1]+=1
     print("Cont2: ", contgen)
     verificar()
+    #verificarpares()
 def voltearCarta3():
     global contgen
     if contgen[2] %2 !=0:
@@ -28,6 +34,7 @@ def voltearCarta3():
     contgen[2]+=1
     print("Cont3: ", contgen)
     verificar()
+    #verificarpares()
 def voltearCarta4():
     global contgen
     print("Cont4: ",contgen)
@@ -38,6 +45,7 @@ def voltearCarta4():
     contgen[3]+=1
     print("Cont4: ", contgen)
     verificar()
+    #verificarpares()
 def voltearCarta5():
     global contgen
     if contgen[4] %2 !=0:
@@ -47,6 +55,7 @@ def voltearCarta5():
     contgen[4]+=1
     print("Cont5: ", contgen)
     verificar()
+    #verificarpares()
 def voltearCarta6():
     global contgen
     if contgen[5] %2 !=0:
@@ -56,6 +65,7 @@ def voltearCarta6():
     contgen[5]+=1
     print("Cont6: ", contgen)
     verificar()
+    #verificarpares()
 contgen=[1,1,1,1,1,1]
 
 ventana = Tk()
@@ -73,7 +83,16 @@ def verificar():
                 boton4.configure(image=cartaR)
                 boton5.configure(image=cartaR)
                 boton6.configure(image=cartaR)
-
+def verificarpares():
+    if dicii[0]==dicii[3]:
+        boton1["state"]=tkinter.DISABLED
+        boton4["state"]=tkinter.DISABLED
+    if dicii[1]==dicii[4]:
+        boton2["state"]=tkinter.DISABLED
+        boton5["state"]=tkinter.DISABLED
+    if dicii[2]==dicii[5]:
+        boton3["state"]=tkinter.DISABLED
+        boton6["state"]=tkinter.DISABLED
 """
 label1 = Label(ventana, text='Carta1', font= ("Arial bold", 10))
 label1.grid(column = 1, row=0)
