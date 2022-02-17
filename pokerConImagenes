@@ -3,25 +3,26 @@ import random
 def voltearCarta1():
     global contgen
     if contgen[0] % 2 != 0:
-        boton1.configure(image=listacartas[0])
+        boton1.configure(image=dicii[listakeys[0]])
     else:
         boton1.configure(image=cartaR)
     contgen[0] += 1
     print("Cont1: ", contgen)
+
     verificar()
 def voltearCarta2():
     global contgen
     if contgen[1] %2 !=0:
-        boton2.configure(image=listacartas[1])
+        boton2.configure(image= dicii[listakeys[1]])
     else:
-        boton2.configure(image=cartaR)
+        boton2.configure(image= cartaR)
     contgen[1]+=1
     print("Cont2: ", contgen)
     verificar()
 def voltearCarta3():
     global contgen
     if contgen[2] %2 !=0:
-        boton3.configure(image=listacartas[2])
+        boton3.configure(image=dicii[listakeys[2]])
     else:
         boton3.configure(image=cartaR)
     contgen[2]+=1
@@ -31,7 +32,7 @@ def voltearCarta4():
     global contgen
     print("Cont4: ",contgen)
     if contgen[3] %2 !=0:
-        boton4.configure(image=listacartas[3])
+        boton4.configure(image=dicii[listakeys[3]])
     else:
         boton4.configure(image=cartaR)
     contgen[3]+=1
@@ -40,7 +41,7 @@ def voltearCarta4():
 def voltearCarta5():
     global contgen
     if contgen[4] %2 !=0:
-        boton5.configure(image=listacartas[4])
+        boton5.configure(image=dicii[listakeys[4]])
     else:
         boton5.configure(image=cartaR)
     contgen[4]+=1
@@ -49,7 +50,7 @@ def voltearCarta5():
 def voltearCarta6():
     global contgen
     if contgen[5] %2 !=0:
-        boton6.configure(image=listacartas[5])
+        boton6.configure(image=dicii[listakeys[5]])
     else:
         boton6.configure(image=cartaR)
     contgen[5]+=1
@@ -72,6 +73,7 @@ def verificar():
                 boton4.configure(image=cartaR)
                 boton5.configure(image=cartaR)
                 boton6.configure(image=cartaR)
+
 """
 label1 = Label(ventana, text='Carta1', font= ("Arial bold", 10))
 label1.grid(column = 1, row=0)
@@ -98,6 +100,8 @@ boton6= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,comman
 boton6.grid(column=3,row=1)
 ventana.title("ENCUENTRA LOS PARES")
 ventana.geometry("800x800")
-listacartas=[cartaJC,cartaASR,carta9C,cartaJC,cartaASR,carta9C]
-random.shuffle(listacartas)
+dicii={0:cartaJC, 1:cartaASR,2:carta9C,3:cartaJC,4:cartaASR,5:carta9C}
+print(dicii[0])
+listakeys=[0,1,2,3,4,5]
+random.shuffle(listakeys)
 ventana.mainloop()
