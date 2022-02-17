@@ -1,59 +1,93 @@
 from tkinter import *
-def voltearCarta():
-    global cont1
-
-    print(cont1)
-    if cont1 % 2 != 0:
-        boton1.configure(image=carta3C)
+import random
+def voltearCarta1():
+    global contgen
+    if contgen[0] % 2 != 0:
+        boton1.configure(image=listacartas[0])
     else:
         boton1.configure(image=cartaR)
-    cont1 += 1
+    contgen[0] += 1
+    print("Cont1: ", contgen)
+    verificar()
 def voltearCarta2():
-    global cont2
-    print(cont2)
-    if cont2 %2 !=0:
-        boton2.configure(image=cartaASD)
+    global contgen
+    if contgen[1] %2 !=0:
+        boton2.configure(image=listacartas[1])
     else:
         boton2.configure(image=cartaR)
-    cont2+=1    
+    contgen[1]+=1
+    print("Cont2: ", contgen)
+    verificar()
 def voltearCarta3():
-    global cont3
-    print(cont3)
-    if cont3 %2 !=0:
-        boton3.configure(image=cartaJoker)
+    global contgen
+    if contgen[2] %2 !=0:
+        boton3.configure(image=listacartas[2])
     else:
         boton3.configure(image=cartaR)
-    cont3+=1        
+    contgen[2]+=1
+    print("Cont3: ", contgen)
+    verificar()
 def voltearCarta4():
-    global cont4
-    print(cont4)
-    if cont4 %2 !=0:
-        boton4.configure(image=cartaJoker)
+    global contgen
+    print("Cont4: ",contgen)
+    if contgen[3] %2 !=0:
+        boton4.configure(image=listacartas[3])
     else:
         boton4.configure(image=cartaR)
-    cont4+=1
+    contgen[3]+=1
+    print("Cont4: ", contgen)
+    verificar()
 def voltearCarta5():
-    global cont5
-    print(cont5)
-    if cont5 %2 !=0:
-        boton5.configure(image=cartaJoker)
+    global contgen
+    if contgen[4] %2 !=0:
+        boton5.configure(image=listacartas[4])
     else:
         boton5.configure(image=cartaR)
-    cont5+=1          
-cont1=1
-cont2=1
-cont3=1
-cont4=1
-cont5=1
+    contgen[4]+=1
+    print("Cont5: ", contgen)
+    verificar()
+def voltearCarta6():
+    global contgen
+    if contgen[5] %2 !=0:
+        boton6.configure(image=listacartas[5])
+    else:
+        boton6.configure(image=cartaR)
+    contgen[5]+=1
+    print("Cont6: ", contgen)
+    verificar()
+contgen=[1,1,1,1,1,1]
+
 ventana = Tk()
-label1 = Label (ventana, text='Carta1', font= ("Arial bold", 10))
+def verificar():
+    for i in range(5):
+        if contgen[i]==contgen[i+1]:
+            print("si")
+"""
+label1 = Label(ventana, text='Carta1', font= ("Arial bold", 10))
 label1.grid(column = 1, row=0)
-label1 = Label (ventana, text='Carta1R', font= ("Arial bold", 10))
+label1 = Label(ventana, text='Carta1R', font= ("Arial bold", 10))
 label1.grid(column = 2, row=0)
 Label1=Label(ventana,text="carta2", font=("Arial bold",10))
-label1.grid(column=3,row=0)
+label1.grid(column=3,row=0)"""
 
-carta3C = PhotoImage(file = r"carta3C.png")
+carta9C = PhotoImage(file = r"carta9C.png")
 cartaR = PhotoImage(file = r"cartareves.png")
-cartaASD=PhotoImage(file=r"ASD.png")
-cartaJoker=PhotoImage(file=r"cartaJoker.png")
+cartaASR=PhotoImage(file=r"cartaASR.png")
+cartaJC=PhotoImage(file=r"cartaJC.png")
+boton1= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta1)
+boton1.grid(column=1,row=0)
+boton2= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta2)
+boton2.grid(column=2,row=0)
+boton3= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta3)
+boton3.grid(column=3,row=0)
+boton4= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta4)
+boton4.grid(column=1,row=1)
+boton5= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta5)
+boton5.grid(column=2,row=1)
+boton6= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta6)
+boton6.grid(column=3,row=1)
+ventana.title("ENCUENTRA LOS PARES")
+ventana.geometry("800x500")
+listacartas=[cartaJC,cartaASR,carta9C,cartaJC,cartaASR,carta9C]
+random.shuffle(listacartas)
+ventana.mainloop()
