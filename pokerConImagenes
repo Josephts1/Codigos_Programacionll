@@ -59,9 +59,19 @@ contgen=[1,1,1,1,1,1]
 
 ventana = Tk()
 def verificar():
-    for i in range(5):
-        if contgen[i]==contgen[i+1]:
-            print("si")
+    global contgen
+    n=0
+    for i in contgen:
+        if i%2==0:
+            n+=1
+            if n==2:
+                contgen = [1, 1, 1, 1, 1, 1]
+                boton1.configure(image=cartaR)
+                boton2.configure(image=cartaR)
+                boton3.configure(image=cartaR)
+                boton4.configure(image=cartaR)
+                boton5.configure(image=cartaR)
+                boton6.configure(image=cartaR)
 """
 label1 = Label(ventana, text='Carta1', font= ("Arial bold", 10))
 label1.grid(column = 1, row=0)
@@ -74,20 +84,20 @@ carta9C = PhotoImage(file = r"carta9C.png")
 cartaR = PhotoImage(file = r"cartareves.png")
 cartaASR=PhotoImage(file=r"cartaASR.png")
 cartaJC=PhotoImage(file=r"cartaJC.png")
-boton1= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta1)
+boton1= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,command=voltearCarta1)
 boton1.grid(column=1,row=0)
-boton2= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta2)
+boton2= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,command=voltearCarta2)
 boton2.grid(column=2,row=0)
-boton3= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta3)
+boton3= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,command=voltearCarta3)
 boton3.grid(column=3,row=0)
-boton4= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta4)
+boton4= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,command=voltearCarta4)
 boton4.grid(column=1,row=1)
-boton5= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta5)
+boton5= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,command=voltearCarta5)
 boton5.grid(column=2,row=1)
-boton6= Button(ventana,text="Presionar",height=230,width=170,image=cartaR,command=voltearCarta6)
+boton6= Button(ventana,text="Presionar",height=300,width=230,image=cartaR,command=voltearCarta6)
 boton6.grid(column=3,row=1)
 ventana.title("ENCUENTRA LOS PARES")
-ventana.geometry("800x500")
+ventana.geometry("800x800")
 listacartas=[cartaJC,cartaASR,carta9C,cartaJC,cartaASR,carta9C]
 random.shuffle(listacartas)
 ventana.mainloop()
