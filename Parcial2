@@ -1,0 +1,117 @@
+from random import randint
+class Cuadrante:
+    numMovi=0
+    numsencuadrante=2
+    def __init__(self,movimiento):
+        Cuadrante.numMovi+=1
+        self.mov=movimiento
+        self.cuadrante=[[2,2,0,0],[16,2,0,0],[4,8,0,0],[4,16,8,2]]
+        print(self.matrizAlgebra())
+        if self.mov=="derecha":
+            self.movimientoD()
+    def matrizAlgebra(self):
+        for i in range(4):
+            for v in range(4):
+                print("[",self.cuadrante[i][v],end=" ]" )
+            print()
+            #print("________________")
+    def VerificarPosibles(self):
+        conVe=0
+        m=0
+        for i in range(4):
+            for v in range(4):
+                for x in range(4):
+                    for z in range(1,4):
+                        if self.cuadrante[i][v]==self.cuadrante[x][z]:
+                            conVe+=1
+
+        return print()
+    def movimientoD(self):   #Movimiento Derecha
+        conD=0
+        cD=0
+        listaD=[]
+        for i in range(3):
+            for v in range(3):
+                if i<3 and v<3:
+                    if self.cuadrante[i][v]==self.cuadrante[i][v+1]:
+                        print(self.cuadrante[i][v+1])
+                        #self.cuadrante[i][v+1]
+                        self.cuadrante[i][v]=0
+                        if self.cuadrante[i][v]==0:
+                            self.cuadrante[i][v+1]=self.cuadrante[i][v]
+
+        """for i in range(3):
+            if self.cuadrante[0][i]==2:
+                cD+=self.cuadrante[0][i]
+                listaD.append(i)
+        for v in range(1,3):
+            for m in range(3):
+                if self.cuadrante[v][m]==0:
+                    self.cuadrante[v][m]=self.cuadrante[v][m-1]
+                    self.cuadrante[v][m-1]=0
+        self.cuadrante[0][listaD[1]]=cD
+        self.cuadrante[0][listaD[0]]=0
+        #self.cuadrante.insert(self.cuadrante[0][i],cD)"""
+        print("Se realizó el movimiento a la derecha")
+    def movimientoI(self): #Movimiento Izquierda
+        conI=0
+        cI=0
+        listaI=[]
+    """for i in range(3,0):
+            if self.cuadrante[0][i]==2:
+                cI+=self.cuadrante[0][i]
+                listaI.append(i)
+        self.cuadrante[0][listaI[0]]=cI
+        self.cuadrante[0][listaI[0]]=0
+        print(cI)"""
+    def movimientoA(self): #Movimiento Arriba
+        conA=0
+        cA=0
+        for i in range(4,0):
+            if self.cuadrante[i][0]==2:
+                cA+=self.cuadrante[0][i]
+        print(cA)
+    def movimientoAB(self): #Movimiento Abajo
+        conAB=0
+        cAB=0
+        for i in range(4,0):
+            if self.cuadrante[i][0]==2:
+                cAB+=self.cuadrante[0][i]
+        print(cAB)
+    def __str__(self):
+        return self.cuadrante
+
+class Suma(Cuadrante):
+    pass
+class Resta(Cuadrante):
+    pass
+def pedirmov():
+    while True:
+        mov=input("Dijite el movimiento que quiere hacer:")
+        si=Cuadrante(mov)
+        si.matrizAlgebra()
+        #si.movimientoD()
+        #si.movimientoI()
+        if Cuadrante.numMovi==10:
+            salir=input("¿Quiere seguir jugando o salir?: ")
+            if salir=="salir":
+                break
+            elif salir=="jugar":
+                continue
+
+
+if __name__=="__main__":
+    pedirmov()
+"""
+import random
+
+listanumPosibles=[2,4,8,16,32,64,128,256]
+lista1=[]
+for i in range(4):
+    lista1.append(random.randint())
+    lista2=[]
+    for v in range(4):
+        lista2.append(lista1)
+
+print(lista2)""" #Concepto de perceptrón y como con ello se
+#Regresión lineal
