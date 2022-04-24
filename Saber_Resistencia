@@ -1,0 +1,31 @@
+estado = True
+while estado == True:
+    colores = []
+    for i in range(0, 4):
+        colorlinea = input("Digite el color de línea en la resistencia: ").lower()
+        if colorlinea != "salir":
+            colores.append(colorlinea)
+        else:
+            estado = False
+    if colores[0] == "dorado" or colores[0] == "plateado":
+        print("Tu lectora en la resistencia no es correcta, toma el otro sentido.")
+    else:
+        print(colores)
+        break
+        # todo Pasar todo a minúsculas
+def valorResistencia(listacolores):
+    valoresAsociados = {"negro":0,"marrón":1,"rojo":2,"naranja":3,"amarillo":4,"verde":5,"azul":6,"violeta":7,"gris":8,"blanco":9}
+    for i in valoresAsociados:
+        if listacolores[0]==i:
+            valorIni=valoresAsociados[i]
+    for i in valoresAsociados:
+        if listacolores[2]==i:
+            if i=="negro":
+                valorMulti=1
+            else:
+                valorMulti=(10**valoresAsociados[i])
+    for i in valoresAsociados:
+        if listacolores[1]==i:
+            valorTotal= int(str(valorIni)+str(valoresAsociados[i])) *valorMulti
+    return print("El valor de la resistencia es de: ",valorTotal," Ohms.")
+valorResistencia(colores)
